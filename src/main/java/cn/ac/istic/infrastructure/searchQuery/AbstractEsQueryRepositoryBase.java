@@ -115,21 +115,21 @@ public class AbstractEsQueryRepositoryBase<T, ID extends Serializable> extends A
                         if (sExpression.get(i) instanceof QueryBuilder)
                             boolQueryBuilder.must((QueryBuilder) sExpression.get(i));
                         else
-                            throw new ThrowOutMessageException("err: function accept muilti-parameters like [filedName, value...] or [query...]");
+                            throw new ThrowOutMessageException("err: function accept muilti-parameters like [query...]");
                     return boolQueryBuilder;
                 case "or":
                     for (int i = 1; i < sExpression.size(); i++)
                         if (sExpression.get(i) instanceof QueryBuilder)
                             boolQueryBuilder.should((QueryBuilder) sExpression.get(i));
                         else
-                            throw new ThrowOutMessageException("err: function accept muilti-parameters like [filedName, value...] or [query...]");
+                            throw new ThrowOutMessageException("err: function accept muilti-parameters like [query...]");
                     return boolQueryBuilder;
                 case "not":
                     for (int i = 1; i < sExpression.size(); i++)
                         if (sExpression.get(i) instanceof QueryBuilder)
                             boolQueryBuilder.mustNot((QueryBuilder) sExpression.get(i));
                         else
-                            throw new ThrowOutMessageException("err: function accept muilti-parameters like [filedName, value...] or [query...]");
+                            throw new ThrowOutMessageException("err: function accept muilti-parameters like [query...]");
                     return boolQueryBuilder;
                 default:
                     throw new ThrowOutMessageException("unknown err: convert query to es query");
