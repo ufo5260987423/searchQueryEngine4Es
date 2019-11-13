@@ -24,8 +24,10 @@ public class AstConverter implements S_ExpressionListener {
 
     @Override
     public void exitS_expression(S_ExpressionParser.S_expressionContext ctx) {
-        if (sExpressionStack.size() > 1)
-            sExpressionStack.peek().add(sExpressionStack.pop());
+        if (sExpressionStack.size() > 1) {
+            List tmp=sExpressionStack.pop();
+            sExpressionStack.peek().add(tmp);
+        }
     }
 
     @Override
