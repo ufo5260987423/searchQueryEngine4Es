@@ -71,7 +71,10 @@ public class AbstractEsQueryRepositoryBase<T, ID extends Serializable> extends A
         if (sExpression.get(0) instanceof AstConverter.Vaiable)
             switch (sExpression.get(0).toString()) {
                 case "eq":
-                    if (sExpression.get(1) instanceof AstConverter.Vaiable && sExpression.get(2) instanceof String)
+                    if (sExpression.get(1) instanceof AstConverter.Vaiable &&
+                            (sExpression.get(2) instanceof String
+                                    || sExpression.get(2) instanceof Integer
+                                    || sExpression.get(2) instanceof Double ))
                         return matchPhraseQuery(sExpression.get(1).toString(), sExpression.get(2));
                     throw new ThrowOutMessageException("err: function accept 2 parameters like [filedName, value]");
                 case "startWith":
