@@ -50,6 +50,10 @@ And turns it into an boolQuery like this:
 }
 ```
 
+## TODO
+* Self-defined macro;
+* Add some macro supported keywords.
+
 ## Installation
 
 ```shell
