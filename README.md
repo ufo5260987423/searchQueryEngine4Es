@@ -2,12 +2,12 @@
 
 > An s-expression parser for Spring Data Elasticsearch.
 
-It parses a s-expression like this:
+It parses an s-expression like this:
 ```
 (and (between pub_time "2019-10-01" "1992-08-29") (like title "squid"))
 ```
 
-And turns it into an boolQuery like this:
+And turns it into a boolQuery like this:
 
 ```json
 {
@@ -49,6 +49,10 @@ And turns it into an boolQuery like this:
 	"version": true
 }
 ```
+
+## TODO
+* Self-defined macro;
+* Add some macro supported keywords.
 
 ## Installation
 
